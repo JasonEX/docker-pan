@@ -2,14 +2,14 @@ version: '3'
 
 services:
   db:
-    image: mariadb:10.1
+    image: yobasystems/alpine-mariadb
     environment:
       MYSQL_ROOT_PASSWORD: filerun
       MYSQL_USER: filerun
       MYSQL_PASSWORD: filerun
       MYSQL_DATABASE: filerun
-    volumes:
-      - /tmp/filerun/db:/var/lib/mysql
+    #volumes:
+    #  - /tmp/filerun/db:/var/lib/mysql
 
   web:
     image: afian/filerun
