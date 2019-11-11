@@ -12,7 +12,10 @@ services:
     #  - /tmp/filerun/db:/var/lib/mysql
 
   web:
-    image: filerun-ng:latest
+    build:
+      context: .
+      args:
+        NG_VER: 1.1.4
     environment:
       FR_DB_HOST: db
       FR_DB_PORT: 3306
