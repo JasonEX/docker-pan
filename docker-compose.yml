@@ -13,7 +13,7 @@ services:
 
   web:
     build:
-      context: .
+      context: web
       args:
         NG_VER: 1.1.4
     environment:
@@ -35,3 +35,14 @@ services:
     volumes:
     #  - /tmp/filerun/html:/var/www/html
       - /tmp/filerun/user-files:/user-files
+
+  aria2:
+    build:
+      context: aria2
+    environment:
+      GID: 33
+      UID: 33
+    ports:
+      - "6800:6800"
+    volumes:
+      - /tmp/filerun/user-files:/downloads
