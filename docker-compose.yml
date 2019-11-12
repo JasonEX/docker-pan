@@ -13,7 +13,7 @@ services:
 
   web:
     build:
-      context: .
+      context: web
       args:
         NG_VER: 1.1.4
     environment:
@@ -22,9 +22,9 @@ services:
       FR_DB_NAME: filerun
       FR_DB_USER: filerun
       FR_DB_PASS: filerun
-      APACHE_RUN_USER: xfs
+      APACHE_RUN_USER: www-data
       APACHE_RUN_USER_ID: 33
-      APACHE_RUN_GROUP: xfs
+      APACHE_RUN_GROUP: www-data
       APACHE_RUN_GROUP_ID: 33
     depends_on:
       - db
@@ -35,3 +35,14 @@ services:
     volumes:
     #  - /tmp/filerun/html:/var/www/html
       - /tmp/filerun/user-files:/user-files
+
+  aria2:
+    build:
+      context: aria2
+    environment:
+      GID: 33
+      UID: 33
+    ports:
+      - "6800:6800"
+    volumes:
+      - /tmp/filerun/user-files:/downloads
