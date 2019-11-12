@@ -21,7 +21,9 @@ if [ ! -e /var/www/html/index.php ];  then
 	unzip /filerun.zip -d /var/www/html/
 	mkdir /var/www/html/ng/
 	unzip /ng.zip -d /var/www/html/ng/
-	cp /autoconfig.php /var/www/html/system/data/
+	rm /filerun.zip
+	rm /ng.zip
+	mv /autoconfig.php /var/www/html/system/data/
 	chown -R ${APACHE_RUN_USER}:${APACHE_RUN_GROUP} /var/www/html
 	chown ${APACHE_RUN_USER}:${APACHE_RUN_GROUP} /user-files
 	mysql_host="${FR_DB_HOST:-mysql}"
