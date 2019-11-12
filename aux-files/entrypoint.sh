@@ -8,9 +8,12 @@ sed -i 's#AllowOverride None#AllowOverride All#' /etc/apache2/httpd.conf
 # Check if user exists
 if ! id -u ${APACHE_RUN_USER} > /dev/null 2>&1; then
 	echo "The user ${APACHE_RUN_USER} does not exist, creating..."
-	addgroup -g ${APACHE_RUN_GROUP_ID} ${APACHE_RUN_GROUP}
-	adduser -u ${APACHE_RUN_USER_ID} -G ${APACHE_RUN_GROUP} -D ${APACHE_RUN_USER}
+	addgroup ${APACHE_RUN_GROUP}
+	adduser -G ${APACHE_RUN_GROUP} -D ${APACHE_RUN_USER}
 fi
+
+groupmod -o -g ${APACHE_RUN_GROUP_ID} ${APACHE_RUN_GROUP}
+usermod -o -u ${APACHE_RUN_USER_ID} ${APACHE_RUN_USER}
 
 # Install FileRun on first run
 if [ ! -e /var/www/html/index.php ];  then
