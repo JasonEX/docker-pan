@@ -35,17 +35,3 @@ services:
     volumes:
       #- /tmp/filerun/html:/var/www/html
       - /tmp/filerun/user-files:/user-files
-
-  #aria2-ng:
-  #  image: wahyd4/aria2-ui
-  #  #links:
-  #  #  - web:file-manager
-  #  environment:
-  #    PUID: 33
-  #    PGID: 33
-  #  ports:
-  #    - "6800:6800"
-  #    - "6801:80"
-  #  volumes:
-  #    - /tmp/filerun/user-files:/data
-  #  #  - /tmp/www/conf:/root/conf
