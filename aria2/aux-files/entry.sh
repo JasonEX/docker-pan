@@ -3,6 +3,6 @@ usermod -o -u ${UID} www-data
 
 chown -R www-data:www-data /downloads
 
-/usr/bin/aria2c --conf-path="" --enable-rpc --rpc-listen-all
+su -c /usr/bin/aria2c --conf-path="" --enable-rpc --rpc-listen-all www-data
 
 "${@-sh}"
