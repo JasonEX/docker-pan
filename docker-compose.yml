@@ -38,7 +38,7 @@ services:
 
   aria2:
     build:
-      context: aria2
+      context: pan-dl
     environment:
       GID: 33
       UID: 33
