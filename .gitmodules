@@ -1,0 +1,3 @@
+[submodule "pan-web"]
+	path = pan-web
+	url = https://github.com/JasonEX/pan-web
