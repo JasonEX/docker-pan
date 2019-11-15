@@ -17,6 +17,7 @@ services:
       args:
         NG_VER: 1.1.4
     environment:
+      ARIA2_RPC_SECRET: ""
       FR_DB_HOST: db
       FR_DB_PORT: 3306
       FR_DB_NAME: filerun
