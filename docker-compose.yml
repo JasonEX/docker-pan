@@ -15,6 +15,8 @@ services:
     build:
       context: pan-web
       args:
+        ENABLE_IMAGE_PREVIEW:
+        ENABLE_VIDEO_PREVIEW:
         NG_VER: 1.1.4
     environment:
       ARIA2_RPC_SECRET: ""
