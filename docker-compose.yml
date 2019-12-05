@@ -15,6 +15,7 @@ services:
     build:
       context: pan-web
       args:
+        ENABLE_SSL:
         ENABLE_IMAGE_PREVIEW:
         ENABLE_VIDEO_PREVIEW:
         NG_VER: 1.1.4
@@ -35,9 +36,11 @@ services:
       - db:db
     ports:
       - "6801:80"
+      - "6804:443"
     volumes:
     #  - /tmp/filerun/html:/var/www/html
       - /tmp/filerun/user-files:/user-files
+    #  - /tmp/filerun/user-ssl:/user-ssl
 
   aria2:
     build:
