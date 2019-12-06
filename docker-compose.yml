@@ -20,6 +20,8 @@ services:
         ENABLE_VIDEO_PREVIEW:
         NG_VER: 1.1.4
     environment:
+      ARIA2_HOST: aria2
+      ARIA2_PORT: 6800
       ARIA2_RPC_SECRET: ""
       FR_DB_HOST: db
       FR_DB_PORT: 3306
@@ -32,11 +34,13 @@ services:
       APACHE_RUN_GROUP_ID: 33
     depends_on:
       - db
+      - aria2
     links:
       - db:db
+      - aria2:aria2
     ports:
       - "6801:80"
-      - "6804:443"
+    #  - "6804:443"
     volumes:
     #  - /tmp/filerun/html:/var/www/html
       - /tmp/filerun/user-files:/user-files
@@ -49,7 +53,7 @@ services:
       RPC_SECRET: ""
       GID: 33
       UID: 33
-    ports:
-      - "6800:6800"
+    #ports:
+    #  - "6800:6800"
     volumes:
       - /tmp/filerun/user-files:/downloads
