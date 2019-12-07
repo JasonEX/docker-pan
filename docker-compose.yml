@@ -22,7 +22,6 @@ services:
     environment:
       ARIA2_HOST: aria2
       ARIA2_PORT: 6800
-      ARIA2_RPC_SECRET: ""
       WEB_PORT: 6801
       FR_DB_HOST: db
       FR_DB_PORT: 3306
